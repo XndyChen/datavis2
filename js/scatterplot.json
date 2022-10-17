@@ -1,0 +1,200 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "height": 500,
+  "width": 1230,
+  "background":"#fff3d579",
+  "data": {
+    "name": "table1",
+    "values": [
+      {"country": "Papua New Guinea", "magnitude": 5.12, "amount": 18, "depth": 74.6},
+      {"country": "Vanuatu", "magnitude": 3.6, "amount": 17, "depth": 48.8},
+      {"country": "Tonga", "magnitude": 3.85, "amount": 13, "depth": 64.8},
+      {"country": "Indonesia", "magnitude": 4.73, "amount": 36, "depth": 68.2},
+      {"country": "India", "magnitude": 4.82, "amount": 18, "depth": 19.55},
+      {"country": "Japan", "magnitude": 4.81, "amount": 32, "depth": 59.3},
+      {"country": "Solomon Islands", "magnitude": 4.81, "amount": 11, "depth": 69.8},
+      {"country": "Fiji Region", "magnitude": 5.04, "amount": 16, "depth": 400.7},
+      {"country": "Russia", "magnitude": 4.23, "amount": 22, "depth": 86},
+      {"country": "Philippines", "magnitude": 4.76,"amount": 35,"depth": 42.3},
+      {"country": "Chile", "magnitude": 3.46, "amount": 17, "depth": 53.9},
+      {"country": "Peru", "magnitude": 4.63, "amount": 15, "depth": 61.8},
+      {"country": "China", "magnitude": 4.59, "amount": 10, "depth": 13.5}
+    ]
+  },
+  "params": [
+    {
+      "name": "country_select",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Chile",
+          "China",
+          "Fiji Region",
+          "India",
+          "Indonesia",
+          "Japan",
+          "Papua New Guinea",
+          "Peru",
+          "Philippines",
+          "Russia",
+          "Solomon Islands",
+          "Tonga",
+          "Vanuatu"
+        ],
+        "labels": [
+          "Show All",
+          "Chile",
+          "China",
+          "Fiji Region",
+          "India",
+          "Indonesia",
+          "Japan",
+          "Papua New Guinea",
+          "Peru",
+          "Philippines",
+          "Russia",
+          "Solomon Islands",
+          "Tonga",
+          "Vanuatu"
+        ],
+        "name": "Country Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "country_select == null || datum.country == country_select"}
+  ],
+  "selection": {
+    "country_selection": {
+      "type": "multi",
+      "fields": ["country"],
+      "bind": "legend"
+    }
+  },
+  "mark": "point",
+  "encoding": {
+    "x": {
+      "field": "magnitude",
+      "type": "quantitative",
+      "title": "Average Magnitude of Earthquakes (mb)",
+      "axis": {"tickCount": 4},
+      "scale": {"domain": [3, 5.5]}
+    },
+    "y": {
+      "field": "amount",
+      "type": "quantitative",
+      "axis": {"tickCount": 8},
+      "scale": {"type": "linear", "domain": [1, 40]},
+      "title": "Number of Earthquakes"
+    },
+    "size": {
+      "field": "depth",
+      "type": "quantitative",
+      "scale": {
+        "type": "threshold",
+        "domain": [20, 40, 60, 80],
+        "range": [100, 300, 500, 800, 2000]
+      },
+      "legend": {"title": "Average Depth"}
+    },
+    "fill": {
+      "field": "country",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Chile",
+          "China",
+          "Fiji Region",
+          "India",
+          "Indonesia",
+          "Japan",
+          "Papua New Guinea",
+          "Peru",
+          "Philippines",
+          "Russia",
+          "Solomon Islands",
+          "Tonga",
+          "Vanuatu"
+        ],
+        "range": [
+          "#a6cee3",
+          "#1f78b4",
+          "#b2df8a",
+          "#33a02c",
+          "#fb9a99",
+          "#e31a1c",
+          "#fdbf6f",
+          "#ff7f00",
+          "#cab2d6",
+          "#6a3d9a",
+          "#ffff99",
+          "#b15928",
+          "#b8db24"
+        ]
+      }
+    },
+    "color": {
+      "field": "country",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Chile",
+          "China",
+          "Fiji Region",
+          "India",
+          "Indonesia",
+          "Japan",
+          "Papua New Guinea",
+          "Peru",
+          "Philippines",
+          "Russia",
+          "Solomon Islands",
+          "Tonga",
+          "Vanuatu"
+        ],
+        "range": [
+          "#a6cee3",
+          "#1f78b4",
+          "#b2df8a",
+          "#33a02c",
+          "#fb9a99",
+          "#e31a1c",
+          "#fdbf6f",
+          "#ff7f00",
+          "#cab2d6",
+          "#6a3d9a",
+          "#ffff99",
+          "#b15928",
+          "#b8db24"
+        ]
+      }
+    },
+    "opacity": {
+      "condition": {"selection": "country_selection", "value": 0.8},
+      "value": 0.2
+    },
+    "tooltip": [
+      {"field": "country", "type": "nominal", "title": "Country"},
+      {
+        "field": "amount",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Amount"
+      },
+      {
+        "field": "magnitude",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Magnitude (mb)"
+      },
+      {
+        "field": "depth",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Average Depth (km)"
+      }
+    ]
+  },
+  "config": {}
+}
