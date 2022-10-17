@@ -1,8 +1,19 @@
-#symbol_map {
+#visualization {
 	top:100px;
 	bottom: 100px; 
 	left: 100px;
 	right: 100px;
 	/*height: 1000px;
 	width: 800px;*/
+}
+
+
+.pure-u-1 {
+font-size: x-large;
+font-weight: bolder;
+color: #000000;
+}
+
+.pure-u-24-24{
+	font-weight: bold;
 }

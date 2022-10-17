@@ -1,0 +1,95 @@
+html, body {
+    background-color: #ffffff;
+    min-height: 100vh; 
+    min-width: 100%;
+}
+
+h1{
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.pure-u-1 img {
+    width: 100vw;
+    height: 80px;
+}
+
+.pure-u-3 img {
+    width: 301vw;
+    height: 30vw;
+}
+
+.title-txt {
+    text-align: center;
+    font-weight: bolder;
+}
+.subtitle-txt {
+    text-align: center;
+    font-size: 30px;
+}
+
+.pure-u-1 {
+    width: 100vw;
+}
+
+.pure-u-1-1 {
+    width: 100vw;
+    margin-top: -350px;
+}
+
+.pure-u-3{
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+#text_div {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+    height: auto;
+}
+
+#text_div2 {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 375px;
+    height: auto;
+}
+
+h2{
+    text-align: center;
+    font-size: 30px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 150px;
+}
+
+.center-divider {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 5px;
+}
+
+#description-txt{
+    margin-left: 3.5%;
+    margin-top: -380px;
+}
+
+#description2-txt{
+    margin-left: 3.5%;
+}
+
+.pure-u-24-24{
+    width: 100vw;
+}
